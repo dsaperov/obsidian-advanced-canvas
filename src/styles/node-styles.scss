@@ -27,15 +27,12 @@
   //#region Text Alignment
   &[data-text-align='center'] {
     .markdown-preview-view {
-      padding: 0 !important;
       overflow-y: initial;
 
       .markdown-preview-section {
         display: flex;
         flex-direction: column;
         justify-content: center;
-
-        min-height: 0 !important;
 
         text-align: center;
         vertical-align: middle;
