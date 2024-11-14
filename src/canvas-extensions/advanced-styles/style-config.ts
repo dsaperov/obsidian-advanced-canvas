@@ -181,6 +181,16 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
         icon: 'arrow-circle-outline',
         label: 'Circle Outline',
         value: 'circle-outline'
+      },
+      {
+        icon: 'arrow-circle-to-triangle',
+        label: 'Circle -> Triangle',
+        value: 'circle-to-triangle'
+      },
+      {
+        icon: 'arrow-circle-outline-to-triangle',
+        label: 'Circle Outline -> Triangle',
+        value: 'circle-outline-to-triangle'
       }
     ]
   },
