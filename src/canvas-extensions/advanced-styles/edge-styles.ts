@@ -136,9 +136,38 @@ export default class EdgeStylesExtension extends CanvasExtension {
     edge.labelElement?.render()
 
     // Set arrow polygon
-    const arrowPolygonPoints = this.getArrowPolygonPoints(edgeData.styleAttributes?.arrow)
-    if (edge.fromLineEnd?.el) edge.fromLineEnd.el.querySelector('polygon')?.setAttribute('points', arrowPolygonPoints)
-    if (edge.toLineEnd?.el) edge.toLineEnd.el.querySelector('polygon')?.setAttribute('points', arrowPolygonPoints)
+    const arrowStyle = edgeData.styleAttributes?.arrow;
+
+    // Handle asymmetric arrow styles
+    if (arrowStyle === "circle-to-triangle" || arrowStyle === "circle-outline-to-triangle") {
+      const [fromLineEndArrowStyle, toLineEndArrowStyle] = arrowStyle.split('-to-'); // circle-outline-to-triangle -> [circle-outline, triangle]
+
+      const fromLineEndArrowBasicShape = fromLineEndArrowStyle.split('-')[0]; // circle-outline -> circle
+      const fromLineEndArrowPolygonPoints = this.getArrowPolygonPoints(fromLineEndArrowBasicShape); // Polygon points for circle
+
+      const toLineEndArrowPolygonPoints = this.getArrowPolygonPoints(null);  // Polygon points for triangle
+
+      // Make edge bidirectional
+      edge.setData({
+        ...edge.getData(),
+        fromEnd: 'arrow',
+      });
+    
+      if (edge.fromLineEnd?.el) {
+        // Set arrow style "circle" or "circle-outline" for fromLineEnd
+        edge.fromLineEnd.el.setAttribute('data-arrow', fromLineEndArrowStyle);
+        edge.fromLineEnd.el.querySelector('polygon')?.setAttribute('points', fromLineEndArrowPolygonPoints);
+      }
+      if (edge.toLineEnd?.el) {
+        // Set arrow style "triangle" for toLineEnd
+        edge.toLineEnd.el.setAttribute('data-arrow', toLineEndArrowStyle);
+        edge.toLineEnd.el.querySelector('polygon')?.setAttribute('points', toLineEndArrowPolygonPoints);
+      }
+    } else { 
+      const arrowPolygonPoints = this.getArrowPolygonPoints(arrowStyle)
+      if (edge.fromLineEnd?.el) edge.fromLineEnd.el.querySelector('polygon')?.setAttribute('points', arrowPolygonPoints)
+      if (edge.toLineEnd?.el) edge.toLineEnd.el.querySelector('polygon')?.setAttribute('points', arrowPolygonPoints)
+    }
 
     // Rotate arrows accordingly
     if (this.plugin.settings.getSetting('edgeStyleDirectRotateArrow')) {
