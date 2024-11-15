@@ -16,7 +16,7 @@ export interface StyleAttribute {
 export const BUILTIN_NODE_STYLE_ATTRIBUTES = [
   {
     datasetKey: 'textAlign',
-    label: 'Text Alignment',
+    label: 'Text alignment',
     nodeTypes: ['text'],
     options: [
       {
@@ -114,7 +114,7 @@ export const BUILTIN_NODE_STYLE_ATTRIBUTES = [
 export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
   {
     datasetKey: 'path',
-    label: 'Path Style',
+    label: 'Path style',
     options: [
       {
         icon: 'path-solid',
@@ -140,7 +140,7 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
   },
   {
     datasetKey: 'arrow',
-    label: 'Arrow Style',
+    label: 'Arrow style',
     options: [
       {
         icon: 'arrow-triangle',
@@ -149,17 +149,17 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
       },
       {
         icon: 'arrow-triangle-outline',
-        label: 'Triangle Outline',
+        label: 'Triangle outline',
         value: 'triangle-outline'
       },
       {
         icon: 'arrow-thin-triangle',
-        label: 'Thin Triangle',
+        label: 'Thin triangle',
         value: 'thin-triangle'
       },
       {
         icon: 'arrow-halved-triangle',
-        label: 'Halved Triangle',
+        label: 'Halved triangle',
         value: 'halved-triangle'
       },
       {
@@ -169,7 +169,7 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
       },
       {
         icon: 'arrow-diamond-outline',
-        label: 'Diamond Outline',
+        label: 'Diamond outline',
         value: 'diamond-outline'
       },
       {
@@ -179,7 +179,7 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
       },
       {
         icon: 'arrow-circle-outline',
-        label: 'Circle Outline',
+        label: 'Circle outline',
         value: 'circle-outline'
       },
       {
@@ -189,14 +189,14 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
       },
       {
         icon: 'arrow-circle-outline-to-triangle',
-        label: 'Circle Outline -> Triangle',
+        label: 'Circle outline -> Triangle',
         value: 'circle-outline-to-triangle'
       }
     ]
   },
   {
     datasetKey: 'pathfindingMethod',
-    label: 'Pathfinding Method',
+    label: 'Pathfinding method',
     options: [
       {
         icon: 'pathfinding-method-bezier',

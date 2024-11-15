@@ -170,6 +170,9 @@ export default class CanvasHelper {
   }
 
   static addStyleAttributesButtons(canvas: Canvas, stylableAttributes: StyleAttribute[], currentStyleAttributes: { [key: string]: string | null }, setStyleAttribute: (attribute: StyleAttribute, value: string | null) => void) {
+    // Prevent adding path styling option to the popup menu
+    stylableAttributes = stylableAttributes.filter(attr => attr.datasetKey !== 'path');
+
     for (const stylableAttribute of stylableAttributes) {
       const selectedStyle = stylableAttribute.options
         .find(option => currentStyleAttributes[stylableAttribute.datasetKey] === option.value) ??
