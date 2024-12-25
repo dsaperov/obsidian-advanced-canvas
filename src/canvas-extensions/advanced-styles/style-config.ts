@@ -168,6 +168,11 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
         value: 'small-triangle'
       },
       {
+        icon: 'arrow-reversed-triangle',
+        label: 'Reversed triangle',
+        value: 'reversed-triangle'
+      },
+      {
         icon: 'arrow-diamond',
         label: 'Diamond',
         value: 'diamond'
