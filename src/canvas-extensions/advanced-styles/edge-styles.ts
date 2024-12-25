@@ -139,7 +139,7 @@ export default class EdgeStylesExtension extends CanvasExtension {
     const arrowStyle = edgeData.styleAttributes?.arrow;
 
     // Handle asymmetric arrow styles
-    if (arrowStyle === "circle-to-triangle" || arrowStyle === "circle-outline-to-triangle" || arrowStyle === "reversed-triangle-to-triangle") {
+    if (arrowStyle?.endsWith("-to-triangle")) {
       const [fromLineEndArrowStyle, toLineEndArrowStyle] = arrowStyle.split('-to-'); // circle-outline-to-triangle -> [circle-outline, triangle]
 
       const fromLineEndArrowBasicShape = fromLineEndArrowStyle.endsWith('-outline') ? fromLineEndArrowStyle.slice(0, -8) : fromLineEndArrowStyle; // circle-outline -> circle
