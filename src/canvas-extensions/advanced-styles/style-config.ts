@@ -163,6 +163,11 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
         value: 'halved-triangle'
       },
       {
+        icon: 'arrow-small-triangle',
+        label: 'Small triangle',
+        value: 'small-triangle'
+      },
+      {
         icon: 'arrow-diamond',
         label: 'Diamond',
         value: 'diamond'
