@@ -139,10 +139,10 @@ export default class EdgeStylesExtension extends CanvasExtension {
     const arrowStyle = edgeData.styleAttributes?.arrow;
 
     // Handle asymmetric arrow styles
-    if (arrowStyle === "circle-to-triangle" || arrowStyle === "circle-outline-to-triangle") {
+    if (arrowStyle === "circle-to-triangle" || arrowStyle === "circle-outline-to-triangle" || arrowStyle === "reversed-triangle-to-triangle") {
       const [fromLineEndArrowStyle, toLineEndArrowStyle] = arrowStyle.split('-to-'); // circle-outline-to-triangle -> [circle-outline, triangle]
 
-      const fromLineEndArrowBasicShape = fromLineEndArrowStyle.split('-')[0]; // circle-outline -> circle
+      const fromLineEndArrowBasicShape = fromLineEndArrowStyle.endsWith('-outline') ? fromLineEndArrowStyle.slice(0, -8) : fromLineEndArrowStyle; // circle-outline -> circle
       const fromLineEndArrowPolygonPoints = this.getArrowPolygonPoints(fromLineEndArrowBasicShape); // Polygon points for circle
 
       const toLineEndArrowPolygonPoints = this.getArrowPolygonPoints(null);  // Polygon points for triangle
@@ -154,7 +154,7 @@ export default class EdgeStylesExtension extends CanvasExtension {
       });
     
       if (edge.fromLineEnd?.el) {
-        // Set arrow style "circle" or "circle-outline" for fromLineEnd
+        // Set arrow style "circle" / "circle-outline" / "reversed-triangle" for fromLineEnd
         edge.fromLineEnd.el.setAttribute('data-arrow', fromLineEndArrowStyle);
         edge.fromLineEnd.el.querySelector('polygon')?.setAttribute('points', fromLineEndArrowPolygonPoints);
       }
