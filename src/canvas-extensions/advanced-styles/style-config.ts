@@ -163,6 +163,16 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
         value: 'halved-triangle'
       },
       {
+        icon: 'arrow-small-triangle',
+        label: 'Small triangle',
+        value: 'small-triangle'
+      },
+      {
+        icon: 'arrow-reversed-triangle',
+        label: 'Reversed triangle',
+        value: 'reversed-triangle'
+      },
+      {
         icon: 'arrow-diamond',
         label: 'Diamond',
         value: 'diamond'
@@ -181,6 +191,11 @@ export const BUILTIN_EDGE_STYLE_ATTRIBUTES = [
         icon: 'arrow-circle-outline',
         label: 'Circle outline',
         value: 'circle-outline'
+      },
+      {
+        icon: 'arrow-reversed-triangle-to-triangle',
+        label: 'Reversed triangle -> Triangle',
+        value: 'reversed-triangle-to-triangle'
       },
       {
         icon: 'arrow-circle-to-triangle',

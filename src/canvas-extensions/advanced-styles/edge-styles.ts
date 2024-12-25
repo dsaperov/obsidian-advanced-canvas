@@ -139,10 +139,10 @@ export default class EdgeStylesExtension extends CanvasExtension {
     const arrowStyle = edgeData.styleAttributes?.arrow;
 
     // Handle asymmetric arrow styles
-    if (arrowStyle === "circle-to-triangle" || arrowStyle === "circle-outline-to-triangle") {
+    if (arrowStyle?.endsWith("-to-triangle")) {
       const [fromLineEndArrowStyle, toLineEndArrowStyle] = arrowStyle.split('-to-'); // circle-outline-to-triangle -> [circle-outline, triangle]
 
-      const fromLineEndArrowBasicShape = fromLineEndArrowStyle.split('-')[0]; // circle-outline -> circle
+      const fromLineEndArrowBasicShape = fromLineEndArrowStyle.endsWith('-outline') ? fromLineEndArrowStyle.slice(0, -8) : fromLineEndArrowStyle; // circle-outline -> circle
       const fromLineEndArrowPolygonPoints = this.getArrowPolygonPoints(fromLineEndArrowBasicShape); // Polygon points for circle
 
       const toLineEndArrowPolygonPoints = this.getArrowPolygonPoints(null);  // Polygon points for triangle
@@ -154,7 +154,7 @@ export default class EdgeStylesExtension extends CanvasExtension {
       });
     
       if (edge.fromLineEnd?.el) {
-        // Set arrow style "circle" or "circle-outline" for fromLineEnd
+        // Set arrow style "circle" / "circle-outline" / "reversed-triangle" for fromLineEnd
         edge.fromLineEnd.el.setAttribute('data-arrow', fromLineEndArrowStyle);
         edge.fromLineEnd.el.querySelector('polygon')?.setAttribute('points', fromLineEndArrowPolygonPoints);
       }
@@ -189,6 +189,10 @@ export default class EdgeStylesExtension extends CanvasExtension {
       return `0,0 5,10 0,20 -5,10`
     else if (arrowStyle === 'circle' || arrowStyle === 'circle-outline')
       return `0 0, 4.95 1.8, 7.5 6.45, 6.6 11.7, 2.7 15, -2.7 15, -6.6 11.7, -7.5 6.45, -4.95 1.8`
+    else if (arrowStyle === 'small-triangle')
+        return `0,0 3.5,10 -3.5,10`
+    else if (arrowStyle === 'reversed-triangle')
+        return `0,12 2,12 5,0 -5,0 -2,12`
     else // Default triangle
       return `0,0 6.5,10.4 -6.5,10.4`
   }

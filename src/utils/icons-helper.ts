@@ -31,10 +31,13 @@ const CUSTOM_ICONS = {
   'arrow-triangle-outline': `<path stroke="currentColor" stroke-width="8.5" fill="none" d="M 15 10 L 85 50 L 15 90 Z"/>`,
   'arrow-thin-triangle': `<path stroke="currentColor" stroke-width="8.5" fill="none" d="M 15 10 L 85 50 L 15 90"/>`,
   'arrow-halved-triangle': `<path stroke="currentColor" fill="currentColor" d="M 15 50 L 85 50 L 15 90 Z"/>`,
+  'arrow-small-triangle': `<path stroke="currentColor" fill="currentColor" d="M15 20 L85 50 L15 80 Z"/>`,
+  'arrow-reversed-triangle': `<path stroke="currentColor" fill="currentColor" d="M 75 20 L 15 40 L 15 60 L 75 80 Z"/>`,
   'arrow-diamond': `<path stroke="currentColor" fill="currentColor" d="M 50 0 L 100 50 L 50 100 L 0 50 Z"/>`,
   'arrow-diamond-outline': `<path stroke="currentColor" stroke-width="8.5" fill="none" d="M 50 0 L 100 50 L 50 100 L 0 50 Z"/>`,
   'arrow-circle': `<circle stroke="currentColor" fill="currentColor" cx="50" cy="50" r="45"/>`,
   'arrow-circle-outline': `<circle stroke="currentColor" stroke-width="8.5" fill="none" cx="50" cy="50" r="45"/>`,
+  'arrow-reversed-triangle-to-triangle': `<path stroke="currentColor" stroke-width="8.5" fill="currentColor" d="M5,42 L35,50 L5,58 Z M35,50 h25 M60,35 L80,50 L60,65 Z"/>`,
   'arrow-circle-to-triangle': `<path stroke="currentColor" stroke-width="8.5" fill="currentColor" d="M20,50 m-15,0 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0 M35,50 h30 M65,35 L85,50 L65,65 Z"/>`,
   'arrow-circle-outline-to-triangle': `<path stroke="currentColor" stroke-width="8.5" fill="none" d="M20,50 m-15,0 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0 M35,50 h30"/><path stroke="currentColor" stroke-width="8.5" fill="currentColor" d="M65,35 L85,50 L65,65 Z"/>`,
 
